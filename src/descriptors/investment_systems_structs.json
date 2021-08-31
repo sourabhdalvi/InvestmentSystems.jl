@@ -1,0 +1,1162 @@
+[
+    {
+        "struct_name":"CapacityCredit",
+        "docstring":"s",
+        "fields":[
+            {
+                "name":"average",
+                "comment":"average capacity credit",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": null
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"marginal",
+                "comment":"marginal capacity credit",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": null
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"FinancialParameter"
+    },
+    {
+        "struct_name":"CapacityFactor",
+        "docstring":"s",
+        "fields":[
+            {
+                "name":"average",
+                "comment":"average capacity factor",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": 1
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"seasonal",
+                "comment":"seasonal capacity factor",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": 1
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"OperationalParameter"
+    },
+    {
+        "struct_name":"Outage",
+        "docstring":"",
+        "fields":[
+            {
+                "name":"forced_rate",
+                "comment":"Forced outage rate",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min":"0.0",
+                    "max":"1.0"
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"planned_rate",
+                "comment":"Planned outage rate",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min":"0.0",
+                    "max":"1.0"
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"OperationalParameter"
+    },
+    {
+        "struct_name":"InterconnectionQueue",
+        "docstring":"",
+        "fields":[
+            {
+                "name":"queue_time",
+                "comment":"The number of years required in the interconnection queue before the build decision can be made.",
+                "null_value":"0",
+                "data_type":"Int64",
+                "valid_range":{
+                    "min": 0,
+                    "max": 99
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"count",
+                "comment":"Number of years spent in the queue process",
+                "null_value":"0",
+                "data_type":"Int64",
+                "valid_range":{
+                    "min": 1,
+                    "max": 99
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"ProjectParameter"
+    },
+    {
+        "struct_name":"Construction",
+        "docstring":"",
+        "fields":[
+            {
+                "name":"construction_time",
+                "comment":"The number of years required to construct the plant after a build decision is made.",
+                "null_value":"0",
+                "data_type":"Int64",
+                "valid_range":{
+                    "min": 0,
+                    "max": 99
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"count",
+                "comment":"Number of years spent in the construction process",
+                "null_value":"0",
+                "data_type":"Int64",
+                "valid_range":{
+                    "min": 1,
+                    "max": 99
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"ProjectParameter"
+    },
+    {
+        "struct_name":"HeatRate",
+        "docstring":"",
+        "fields":[
+            {
+                "name":"average",
+                "comment":"",
+                "null_value":"0.0",
+                "data_type":"Union{Float64, Seasonal}"
+            },
+            {
+                "name":"startup",
+                "comment":"",
+                "null_value":"0.0",
+                "data_type":"Union{Float64, Turbine_Temperature}"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+
+        ],
+        "supertype":"OperationalParameter"
+    },
+    {
+        "struct_name":"AlternateFuel",
+        "docstring":"",
+        "fields":[
+            {
+                "name":"secondary_fuel",
+                "comment":"",
+                "null_value":"ThermalFuels.OTHER",
+                "data_type":"ThermalFuels.ThermalFuel"
+            },
+            {
+                "name":"fuel_ratio",
+                "comment":"",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0.0,
+                    "max": 1.0
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"OperationalParameter"
+    },
+    {
+        "struct_name":"LifeCycle",
+        "docstring":"Includes all details regarding plant Lifetime, Build year etc.",
+        "fields":[
+            {
+                "name":"lifetime",
+                "comment":"Expected lifetime of the plant before it has to be retired.",
+                "null_value":"1",
+                "data_type":"Int64",
+                "valid_range":{
+                    "min": 1,
+                    "max": 99
+                },
+                "validation_action":"warn"
+
+            },
+            {
+                "name":"build_year",
+                "comment":"Year in which the plant was build.",
+                "null_value":"1900",
+                "data_type":"Int64",
+                "valid_range":{
+                    "min": 1900,
+                    "max": 2999
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"project_phase",
+                "comment":"current state of the project",
+                "null_value":"ProjectPhases.COMPLETED",
+                "data_type":"ProjectPhases.ProjectPhase"
+            },
+            {
+                "name":"available",
+                "comment":"The years when this technology is available to build.",
+                "null_value":"(after=1900, before=2999)",
+                "data_type":"After_Before"
+            },
+            {
+                "name":"construction",
+                "comment":"",
+                "null_value":"nothing",
+                "data_type":"Union{Nothing,Construction}",
+                "default": "nothing"
+            },
+            {
+                "name":"queue_time",
+                "comment":"",
+                "null_value":"nothing",
+                "data_type":"Union{Nothing,InterconnectionQueue}",
+                "default": "nothing"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"ProjectParameter"
+    },
+    {
+        "struct_name":"Emission",
+        "docstring":"",
+        "fields":[
+            {
+                "name":"pollutant",
+                "comment":"type of pollutant",
+                "null_value":"Pollutants.OTH",
+                "data_type":"Pollutants.Pollutant"
+            },
+            {
+                "name":"emission_rate",
+                "comment":"TODO: units in [lb/hr] or [tons/year]",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0.0,
+                    "max": null
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"OperationalParameter"
+    },
+    {
+        "struct_name":"Retirement",
+        "docstring":"",
+        "fields":[
+            {
+                "name":"eligible_capacity",
+                "comment":"",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min":0.0,
+                    "max":null
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"ProjectParameter"
+    },
+    {
+        "struct_name":"EmissionPolicy",
+        "docstring":"",
+        "fields":[
+            {
+                "name":"pollutant",
+                "comment":"pollutant type",
+                "null_value":"OTH::Pollutants",
+                "data_type":"Pollutants"
+            },
+            {
+                "name":"tax",
+                "comment":"penalty on production, TODO: units [lb/hr]",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": null
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"limit",
+                "comment":"hard limit on production",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": null
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+
+        ],
+        "supertype":"PolicyParameter"
+    },
+    {
+        "struct_name":"ResourceSupplyCurve",
+        "docstring":"Resource Supply Curve for ReEDs",
+        "fields":[
+            {
+                "name":"cost",
+                "comment":"",
+                "null_value":"CapitalCost((0.0, 0.0))",
+                "data_type":"CapitalCost"
+            },
+            {
+                "name":"resource_scaler",
+                "comment":"resourcescaler parameter from ReEDS",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": null
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"FinancialParameter"
+    },
+    {
+        "struct_name":"ProjectCost",
+        "docstring":"",
+        "fields":[
+            {
+                "name":"capital_cost",
+                "comment":"cost_cap from ReEDS",
+                "null_value":"CapitalCost(0.0)",
+                "data_type":" Union{CapitalCost, ResourceSupplyCurve}"
+            },
+            {
+                "name":"tax_rate",
+                "comment":"",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": null
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"discount_rate",
+                "comment":"",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": null
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"inflation_rate",
+                "comment":"cost_cap_fin_mult parameter from ReEDS",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": null
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"FinancialParameter"
+    },
+    {
+        "struct_name":"ServiceOperations",
+        "docstring":"Cost of providing a particular service",
+        "parametric": [
+            {
+                "type":"PSY.Service",
+                "symbol":"T",
+                "field":"service"
+            }
+        ],
+        "fields":[
+            {
+                "name":"service",
+                "comment":"Service from PowerSystems",
+                "null_value":"StaticReserve{ReserveUp}(nothing)",
+                "data_type":"T"
+            },
+            {
+                "name":"cost",
+                "comment":"Regulation reserve product",
+                "null_value":"VariableCost((0.0, 0.0))",
+                "data_type":"VariableCost"
+            },
+            {
+                "name":"contribution",
+                "commment":"",
+                "null_value":"(min=0.0, max=1.0)",
+                "data_type":"Min_Max"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"OperationalParameter"
+    },
+    {
+        "struct_name":"Curtailment",
+        "docstring":"",
+        "fields":[
+            {
+                "name":"average",
+                "comment":"average curtailment rate ",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": null
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"marginal",
+                "comment":"marginal curtailment rate",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": null
+                },
+                "validation_action":"warn"
+            }
+        ],
+        "supertype":"OperationalParameter"
+    },
+    {
+        "struct_name":"FuelPrice",
+        "docstring":"",
+        "fields":[
+            {
+                "name":"fueltype",
+                "comment":"type of fuel",
+                "null_value":"ThermalFuels.OTHER",
+                "data_type":"ThermalFuels.ThermalFuel"
+            },
+            {
+                "name":"price",
+                "comment":"",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": null
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"OperationalParameter"
+    },
+    {
+        "struct_name":"Node",
+        "docstring":"",
+        "fields":[
+            {
+                "name":"name",
+                "comment":"name of the region",
+                "data_type":"String"
+            },
+            {
+                "name":"network",
+                "comment":"holds a vector of buses",
+                "null_value":"LoadZone(nothing)",
+                "data_type":"LoadZone",
+                "forwarding":"true"
+            },
+            {
+                "name":"_forecasts",
+                "null_value":"InfrastructureSystems.Forecasts()",
+                "data_type":"InfrastructureSystems.Forecasts",
+                "default":"InfrastructureSystems.Forecasts()"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+
+        ],
+        "supertype":"Topology"
+    },
+    {
+        "struct_name":"Zone",
+        "docstring":"",
+        "fields":[
+            {
+                "name":"name",
+                "comment":"name of the region",
+                "data_type":"String"
+            },
+            {
+                "name":"network",
+                "comment":"holds a vector of buses",
+                "null_type":"LoadZone(nothing)",
+                "data_type":"LoadZone"
+            },
+            {
+                "name":"induced_curtailment",
+                "comment":" induced_curtailment parameter from ReEDS",
+                "null_type":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": null
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"planning_reserve_requirement",
+                "comment":" prm parameter from ReEDS",
+                "null_type":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": null
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"emission_policy",
+                "comment":"holds a vector of emissions",
+                "null_type":"EmissionPolicy[]",
+                "data_type":"Vector{EmissionPolicy}",
+                "default": "EmissionPolicy[]"
+            },
+            {
+                "name":"_forecasts",
+                "null_value":"InfrastructureSystems.Forecasts()",
+                "data_type":"InfrastructureSystems.Forecasts",
+                "default":"InfrastructureSystems.Forecasts()"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+
+        ],
+        "supertype":"Topology"
+    },
+    {
+        "struct_name":"Region",
+        "docstring":"",
+        "fields":[
+            {
+                "name":"name",
+                "comment":"name of the region",
+                "data_type":"String"
+            },
+            {
+                "name":"network",
+                "comment":"holds a vector of buses",
+                "null_type":"LoadZone(nothing)",
+                "data_type":"LoadZone"
+            },
+            {
+                "name":"_forecasts",
+                "null_value":"InfrastructureSystems.Forecasts()",
+                "data_type":"InfrastructureSystems.Forecasts",
+                "default":"InfrastructureSystems.Forecasts()"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"Topology"
+    },
+    {
+        "struct_name":"ThermalOperations",
+        "docstring":"",
+        "fields":[
+            {
+                "name":"capcaity_factor",
+                "comment":"",
+                "null_value":"CapacityFactor(nothing)",
+                "data_type":"CapacityFactor"
+            },
+            {
+                "name":"outage_factor",
+                "comment":"",
+                "null_value":"Outage(nothing)",
+                "data_type":"Outage"
+            },
+            {
+                "name":"heatrate",
+                "comment":"heatrates from ReEDS",
+                "null_value":"HeatRate(nothing)",
+                "data_type":"HeatRate"
+            },
+            {
+                "name":"minimum_load_factor",
+                "comment":"minloadfrac from ReEDS",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": null
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"emission",
+                "comment":"emit_rate from ReEDS",
+                "null_value":"Emission[]",
+                "data_type":"Vector{Emission}",
+                "default": "Emission[]"
+            },
+            {
+                "name":"service_operations",
+                "comment":"",
+                "null_value":"ServiceOperations[]",
+                "data_type":"Vector{ServiceOperations}",
+                "default":"ServiceOperations[]"
+            },
+            {
+                "name":"alternate_fuel",
+                "comment":"bio_cofire_perc from ReEDS",
+                "null_value":"nothing",
+                "data_type":"Union{Nothing, AlternateFuel}",
+                "default": "nothing"
+            },
+            {
+                "name":"fuel_price",
+                "comment":"fuel_price from ReEDS",
+                "null_value":"nothing",
+                "data_type":"Union{Nothing, FuelPrice}",
+                "default": "nothing"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"AbstractOperations"
+    },
+    {
+        "struct_name":"HydroOperations",
+        "docstring":"",
+        "fields":[
+            {
+                "name":"capcaity_factor",
+                "comment":"",
+                "null_value":"CapacityFactor(nothing)",
+                "data_type":"CapacityFactor"
+            },
+            {
+                "name":"outage_factor",
+                "comment":"",
+                "null_value":"Outage(nothing)",
+                "data_type":"Outage"
+            },
+            {
+                "name":"curtailment",
+                "comment":"",
+                "null_value":"Curtailment(nothing)",
+                "data_type":"Curtailment"
+            },
+            {
+                "name":"minimum_load_factor",
+                "comment":"minloadfrac from ReEDS",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": null
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"service_operations",
+                "comment":"",
+                "null_value":"ServiceOperations[]",
+                "data_type":"Vector{ServiceOperations}",
+                "default":"ServiceOperations[]"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"AbstractOperations"
+    },
+    {
+        "struct_name":"GenericOperations",
+        "docstring":"",
+        "fields":[
+            {
+                "name":"capcaity_factor",
+                "comment":"",
+                "null_value":"CapacityFactor(nothing)",
+                "data_type":"CapacityFactor"
+            },
+            {
+                "name":"outage_factor",
+                "comment":"",
+                "null_value":"Outage(nothing)",
+                "data_type":"Outage"
+            },
+            {
+                "name":"service_operations",
+                "comment":"",
+                "null_value":"ServiceOperations[]",
+                "data_type":"Vector{ServiceOperations}",
+                "default":"ServiceOperations[]"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"AbstractOperations"
+    },
+    {
+        "struct_name":"RenewableOperations",
+        "docstring":"",
+        "fields":[
+            {
+                "name":"capcaity_factor",
+                "comment":"",
+                "null_value":"CapacityFactor(nothing)",
+                "data_type":"CapacityFactor"
+            },
+            {
+                "name":"outage_factor",
+                "comment":"",
+                "null_value":"Outage(nothing)",
+                "data_type":"Outage"
+            },
+            {
+                "name":"curtailment",
+                "comment":"",
+                "null_value":"Curtailment(nothing)",
+                "data_type":"Curtailment"
+            },
+            {
+                "name":"minimum_load_factor",
+                "comment":"minloadfrac from ReEDS",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": null
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"growth_rate",
+                "comment":" growth_limit_relative from ReEDS",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": null
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"service_operations",
+                "comment":"",
+                "null_value":"ServiceOperations[]",
+                "data_type":"Vector{ServiceOperations}",
+                "default":"ServiceOperations[]"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"AbstractOperations"
+    },
+    {
+        "struct_name":"BatteryOperations",
+        "docstring":"",
+        "fields":[
+            {
+                "name":"capcaity_factor",
+                "comment":"",
+                "null_value":"CapacityFactor(nothing)",
+                "data_type":"CapacityFactor"
+            },
+            {
+                "name":"outage_factor",
+                "comment":"",
+                "null_value":"Outage(nothing)",
+                "data_type":"Outage"
+            },
+            {
+                "name":"duration",
+                "comment":"storage_duration from ReEDS",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": null
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"curtailment_reduction",
+                "comment":"curt_storage from ReEDS",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": null
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"service_operations",
+                "comment":"",
+                "null_value":"ServiceOperations[]",
+                "data_type":"Vector{ServiceOperations}",
+                "default":"ServiceOperations[]"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"AbstractOperations"
+    },
+    {
+        "struct_name":"RenewableFinance",
+        "docstring":"",
+        "fields":[
+            {
+                "name":"capacity_credit",
+                "comment":"",
+                "null_value":"CapacityCredit(nothing)",
+                "data_type":"CapacityCredit"
+            },
+            {
+                "name":"life_cycle",
+                "comment":"",
+                "null_value":"LifeCycle(nothing)",
+                "data_type":"LifeCycle"
+            },
+            {
+                "name":"incentive",
+                "comment":"gen_pol from ReEDS",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": null
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"project_cost",
+                "comment":"",
+                "null_value":"nothing",
+                "data_type":"Union{Nothing, ProjectCost}",
+                "default": "nothing"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"AbstractFinance"
+    },
+    {
+        "struct_name":"HydroFinance",
+        "docstring":"",
+        "fields":[
+            {
+                "name":"capcaity_credit",
+                "comment":"",
+                "null_value":"CapacityCredit(nothing)",
+                "data_type":"CapacityCredit"
+            },
+            {
+                "name":"life_cycle",
+                "comment":"",
+                "null_value":"LifeCycle(nothing)",
+                "data_type":"LifeCycle"
+            },
+            {
+                "name":"incentive",
+                "comment":"",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": null
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"project_cost",
+                "comment":"",
+                "null_value":"nothing",
+                "data_type":"Union{Nothing, ProjectCost}",
+                "default": "nothing"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"AbstractFinance"
+    },
+    {
+        "struct_name":"GenericFinance",
+        "docstring":"",
+        "fields":[
+            {
+                "name":"life_cycle",
+                "comment":"",
+                "null_value":"LifeCycle(nothing)",
+                "data_type":"LifeCycle"
+            },
+            {
+                "name":"project_cost",
+                "comment":"",
+                "null_value":"nothing",
+                "data_type":"Union{Nothing, ProjectCost}",
+                "default": "nothing"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"AbstractFinance"
+    },
+    {
+        "struct_name":"BatteryFinance",
+        "docstring":"",
+        "fields":[
+            {
+                "name":"capcaity_credit",
+                "comment":"",
+                "null_value":"CapacityCredit(nothing)",
+                "data_type":"CapacityCredit"
+            },
+            {
+                "name":"life_cycle",
+                "comment":"",
+                "null_value":"LifeCycle(nothing)",
+                "data_type":"LifeCycle"
+            },
+            {
+                "name":"incentive",
+                "comment":"",
+                "null_value":"0.0",
+                "data_type":"Float64",
+                "valid_range":{
+                    "min": 0,
+                    "max": null
+                },
+                "validation_action":"warn"
+            },
+            {
+                "name":"project_cost",
+                "comment":"",
+                "null_value":"nothing",
+                "data_type":"Union{Nothing, ProjectCost}",
+                "default": "nothing"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"AbstractFinance"
+    },
+    {
+        "struct_name":"Investment",
+        "docstring":"",
+        "parametric": [
+            {
+                "type":"AbstractOperations",
+                "symbol":"T",
+                "field":"operations"
+            },
+            {
+                "type":"AbstractFinance",
+                "symbol":"U",
+                "field":"finance"
+            }
+        ],
+        "fields":[
+            {
+                "name":"operations",
+                "comment":"",
+                "null_value":"GenericOperations(nothing)",
+                "data_type":"T"
+            },
+            {
+                "name":"finance",
+                "comment":"Financial parameters",
+                "null_value":"GenericFinance(nothing)",
+                "data_type":"U"
+            },
+            {
+                "name":"retirement",
+                "comment":"",
+                "null_value":"nothing",
+                "data_type":"Union{Nothing,Retirement}",
+                "default": "nothing"
+            },
+            {
+                "name":"_forecasts",
+                "null_value":"InfrastructureSystems.Forecasts()",
+                "data_type":"InfrastructureSystems.Forecasts",
+                "default":"InfrastructureSystems.Forecasts()"
+            },
+            {
+                "name":"internal",
+                "comment":"power system internal reference, do not modify",
+                "data_type":"InfrastructureSystemsInternal",
+                "internal_default":"InfrastructureSystemsInternal()"
+            }
+        ],
+        "supertype":"AbstractInvestment"
+    }
+]

@@ -1,0 +1,14 @@
+name = "InvestmentSystems"
+uuid = "1f7095dc-c350-4ea6-afed-a403094f31ea"
+authors = ["sourabhdalvi <sourabh.p.dalvi@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+InfrastructureSystems = "2cd47ed4-ca9b-11e9-27f2-ab636a7671f1"
+JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
+Mustache = "ffc61752-8dc7-55ee-8c37-f3e9cdd09e70"
+PowerSystems = "bcd98974-b02a-5e2f-9ee0-a103f5c450dd"
+ReusePatterns = "a39b5e78-89b5-562b-97d8-70689129df0c"
+Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
+TimeSeries = "9e3dc215-6440-5c97-bce1-76c03772f85e"
